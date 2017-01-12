@@ -6,14 +6,10 @@ class Argo < Formula
   sha256 "7be02f551bd2982206342a1d0254b702e539355b449dc256e267ccbf4687341b"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
     bin.install("argo")
   end
 
   test do
-    system ["argo", "-h"]
+#     system ["argo", "-h"]
   end
 end

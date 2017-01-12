@@ -1,7 +1,7 @@
 class Argo < Formula
-  desc "argo app"
   homepage "https://github.com/osfx/argo"
   url "https://github.com/osfx/argo/archive/v0.1.1.tar.gz"
+  version "0.1.1"
   sha256 "7be02f551bd2982206342a1d0254b702e539355b449dc256e267ccbf4687341b"
 
   # depends_on "cmake" => :build
@@ -15,9 +15,10 @@ class Argo < Formula
     #                       "--disable-silent-rules",
     #                       "--prefix=#{prefix}"
     # system "cmake", ".", *std_cmake_args
-    system "make", "install" # if this fails, try separate make/make install steps
+    system "make" # if this fails, try separate make/make install steps
   end
   test do
+    system ["argo", "-h"]
   # `test do` will create, run in and delete a temporary directory.
   #
   # This test will fail and we won't accept that! It's enough to just replace
@@ -27,6 +28,6 @@ class Argo < Formula
   #
   # The installed folder is not in the path, so use the entire path to any
   # executables being tested: `system "#{bin}/program", "do", "something"`.
-  system "false"
+  # system "false"
 end
 end
